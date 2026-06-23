@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 持续关注的杂志视角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #fce9d8 0%, #fbd5c0 35%, #f8c4a8 70%, #f2b396 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #2c2b28;
+            line-height: 1.6;
+            padding: 30px 20px 40px;
+        }
+
+        .magazine-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(255, 245, 235, 0.55);
+            backdrop-filter: blur(3px);
+            border-radius: 60px 60px 40px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 30px rgba(180, 100, 70, 0.12);
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #7a4a3a;
+            text-shadow: 0 2px 6px rgba(200, 130, 100, 0.15);
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6f4e3e;
+            background: rgba(237, 207, 183, 0.4);
+            display: inline-block;
+            padding: 6px 28px;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            letter-spacing: 0.8px;
+        }
+
+        .hero .banner-note {
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #6b4d3d;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid rgba(160, 115, 90, 0.2);
+            padding-top: 22px;
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .card {
+            background: rgba(255, 248, 243, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 36px 38px 34px;
+            box-shadow: 0 8px 20px rgba(140, 95, 75, 0.08);
+            transition: box-shadow 0.25s, transform 0.2s;
+            border: 1px solid rgba(230, 190, 168, 0.2);
+        }
+
+        .card:hover {
+            box-shadow: 0 14px 28px rgba(150, 100, 75, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.9rem;
+            font-weight: 350;
+            letter-spacing: 1px;
+            border-left: 6px solid #dba587;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #5b3f32;
+        }
+
+        .card p {
+            margin-bottom: 16px;
+            font-size: 1.02rem;
+            color: #3e332e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            color: #9b6b55;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px dotted #dba587;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #784e3a;
+            border-bottom: 2px solid #b28268;
+        }
+
+        .faq-mini {
+            background: rgba(245, 225, 210, 0.5);
+            border-radius: 28px;
+            padding: 28px 32px 22px;
+            margin-top: 10px;
+            border: 1px solid rgba(210, 170, 148, 0.25);
+        }
+
+        .faq-mini h3 {
+            font-size: 1.25rem;
+            font-weight: 380;
+            color: #5f4134;
+            margin-bottom: 14px;
+            letter-spacing: 0.4px;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            align-items: baseline;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #7b5a48;
+            min-width: 80px;
+        }
+
+        .faq-a {
+            color: #3c2f29;
+        }
+
+        .page-footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 28px 20px 10px;
+            border-top: 1px solid rgba(190, 145, 120, 0.2);
+            font-size: 0.95rem;
+            color: #634f42;
+        }
+
+        .page-footer .visit-tip {
+            background: rgba(230, 195, 172, 0.35);
+            display: inline-block;
+            padding: 10px 32px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-meta {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px 30px;
+            }
+
+            .hero {
+                padding: 40px 16px 30px;
+                border-radius: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .card {
+                padding: 26px 22px 26px;
+                border-radius: 32px;
+            }
+
+            .card h2 {
+                font-size: 1.6rem;
+                padding-left: 14px;
+            }
+
+            .faq-mini {
+                padding: 20px 18px 18px;
+            }
+
+            .faq-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .page-footer .visit-tip {
+                padding: 8px 22px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-wrap">
+        <!-- 首页横幅 hero -->
+        <div class="hero">
+            <h1>乐鱼</h1>
+            <div class="sub">一本关于持续关注的杂志式页面</div>
+            <div class="banner-note">
+                并非一次性的浏览，而是更安静、更持续的阅读与回过头来再看一眼的整理。
+            </div>
+        </div>
+
+        <!-- 三段自然介绍 + 收藏 / 持续关注角度 -->
+        <div class="cards-grid">
+            <!-- 第一段：再次访问的意义 -->
+            <div class="card">
+                <h2>再次访问 · 一种重读</h2>
+                <p>
+                    网站上的内容如同书架上的杂志，你偶然翻开一期，可能记得某个观点、某张图片。
+                    但真正让一个站点产生价值的，往往是第二次、第三次的返回。<a href="https://mobilesite-leyu.com" class="highlight-link">乐鱼</a> 这个地址，
+                    最初也许只是随手点开，但随着你重新输入、从书签中调出，它慢慢变成你获取某种稳定信息的角落。
+                </p>
+                <p>
+                    再次访问并不是因为遗忘，而是一种确认——确认那个页面仍然在那里，确认它的调性没有变，
+                    同时偶尔发现一些之前忽略的细节。这种重读，让信息不再是过眼云烟。
+                </p>
+            </div>
+
+            <!-- 第二段：收藏与标签式关注 -->
+            <div class="card">
+                <h2>收藏夹里的坐标</h2>
+                <p>
+                    很多人的浏览器收藏栏里，总有那么几个网站，它们不是每天打开，但每次打开都像回到一个熟悉的房间。
+                    收藏 <a href="https://mobilesite-leyu.com" class="highlight-link">乐鱼</a> 相当于设定一个属于自己的浏览坐标。
+                    你不用刻意记住网址，也不用依赖搜索引擎的临时结果；收藏夹让注意力有了落脚点。
+                </p>
+                <p>
+                    持续关注不等于频繁刷新，而是你心里知道这个地址蕴含某种风格、某种内容节奏，
+                    你可以在需要的时候安静地回来，而不必被推送或提醒打扰。这是一种慢关注，也是一种主动的整理习惯。
+                </p>
+            </div>
+
+            <!-- 第三段：持续关注与自然节奏 -->
+            <div class="card">
+                <h2>不必追赶，只需在场</h2>
+                <p>
+                    杂志式的阅读，不追求时效性的焦虑。一个网站如果值得持续关注，它往往会培养出属于自己的更新节奏。
+                    你不需要每天检查，但每隔一段时间点开 <a href="https://mobilesite-leyu.com" class="highlight-link">乐鱼</a>，
+                    可能看到新的内容、不同的编排，或者仅仅是熟悉的界面带来的一点稳定感。
+                </p>
+                <p>
+                    持续关注的核心不是数量，而是质量——你在意那个页面所代表的东西。
+                    它可能是一段文字、一种配色、一个观点，或者只是你在网络漫游中筛选出的一个安静座位。
+                </p>
+
+                <!-- 嵌入 FAQ 摘要，丰富杂志感 -->
+                <div class="faq-mini">
+                    <h3>关于“持续关注”的几个朴素问题</h3>
+                    <div class="faq-item">
+                        <span class="faq-q">Q: 为什么收藏比记在脑子里靠谱？</span>
+                        <span class="faq-a">A: 大脑擅长联想，不擅长精确字符串。收藏让回访有一致路径。</span>
+                    </div>
+                    <div class="faq-item">
+                        <span class="faq-q">Q: 多久访问一次算“关注”？</span>
+                        <span class="faq-a">A: 没有标准。有人每周，有人每月，有人只在特定心情时——都算。</span>
+                    </div>
+                    <div class="faq-item">
+                        <span class="faq-q">Q: 页面一直不变怎么办？</span>
+                        <span class="faq-a">A: 不变也是一种风格。就像一本你常翻的旧杂志，每次看都有不同感悟。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示（自然地再次提到链接） -->
+        <div class="page-footer">
+            <div class="visit-tip">
+                如果你还没有收藏，不妨将 <a href="https://mobilesite-leyu.com" class="highlight-link">乐鱼</a> 放进书签。
+                下次想找个安静页面时，它会在这里。
+            </div>
+            <div class="footer-meta">
+                杂志式存档 · 基于真实访问节奏 · 不追逐版本
+            </div>
+        </div>
+    </div>
+</body>
+</html>
